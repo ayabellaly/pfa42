@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head th:replace="head :: head">
+<head th:replace="head :: head ">
 </head>
 
 
@@ -21,46 +21,65 @@
         <div id="content">
             <div/>
             <div class="container">
-                <h3> Edit patient</h3>
+                <h3> add Payment</h3>
                 <div class="card">
                     <div class="card-body">
                         <div class="col-md-10">
-                            <form action="#" th:action="@{/updatePatient}" th:object="${patients}"
+                            <form action="#" th:action="@{/updatePaiement}" th:object="${paiement}"
                                   method="post">
                                 <div class="row">
+
+
                                     <div class="form-group col-md-8">
-                                       <!-- <label for="patientid" class="col-form-label">Patient id</label>-->
-                                        <input type="hidden" th:field="${patients.id}"  class="form-control"
-                                               id="patientid" placeholder="Patient id" />
-                                    </div>
-                                    <div class="form-group col-md-8">
-                                        <label for="name" class="col-form-label">Patient Name</label>
-                                        <input type="text" th:field="${patients.name}" class="form-control"
-                                               id="name" placeholder="Patient name" />
-                                    </div>
-                                    <div class="form-group col-md-8">
-                                        <label for="phone" class="col-form-label">Patient phone</label>
-                                        <input type="text" th:field="${patients.phone}" class="form-control"
-                                               id="phone" placeholder="Patient phone" />
-                                    </div>
-                                    <div class="form-group col-md-8">
-                                        <label for="address" class="col-form-label">Adresse</label>
-                                        <input type="text" th:field="${patients.address}" class="form-control"
-                                               id="address" placeholder="address" />
-                                    </div>
-                                    <div class="form-group col-md-8">
-                                        <label for="email" class="col-form-label">Email</label>
-                                        <input type="text" th:field="${patients.email}" class="form-control"
-                                               id="email" placeholder="Publication" />
+                                        <label for="type" class="col-form-label">start Time</label>
+                                        <select  id="type" th:field="${paiement.type}" required class="form-control">
+                                            <option value="">-- Select Type --</option>
+                                            <option value="">Chéque</option>
+                                            <option value="debit">liquide</option>
+
+                                        </select>
                                     </div>
 
+
+                                    <div class="form-group col-md-8">
+                                        <label for="datePaiement" class="col-form-label">date de Paiement</label>
+                                        <input type="Date" th:field="${paiement.datePaiement}" name="dateZ" class="form-control"
+                                               id="datePaiement" placeholder="datePaiement" required/>
+                                    </div>
+
+
+
+                                    <div class="form-group col-md-8">
+                                        <label for="Montant" class="col-form-label">Montant</label>
+                                        <input type="text" th:field="${paiement.Montant}" class="form-control"
+                                               id="Montant" placeholder="Montant" />
+                                    </div>
+
+
+
+                                    <div class="form-group col-md-8">
+                                        <label for="description" class="col-form-label">description</label>
+                                        <input type="text" th:field="${paiement.description}" class="form-control"
+                                               id="description" placeholder="description" />
+
+                                    </div>
+
+
+                                    <div class="form-group col-md-8">
+                                        <label for="patient" class="col-form-label">Patient:</label>
+                                        <select id="patient" name="patient.id" required class="form-control">
+                                            <!-- Iterate over the list of patients and populate the dropdown options -->
+                                            <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.name}"></option>
+                                        </select>
+                                    </div>
                                     <div class="col-md-6">
                                         <input type="submit" class="btn btn-primary" value=" Submit ">
                                     </div>
 
-                                    <input type="hidden" id="id" th:field="${patients.id}">
+                                    <input type="hidden" id="id" th:field="${paiement.id}">
 
-                                </div>
+                                    </div>
+
                             </form>
                         </div>
                     </div>
@@ -70,7 +89,6 @@
         </div>
         <!-- End of Main Content -->
 
-        <!-- Footer -->
 
 
     </div>

@@ -52,7 +52,14 @@ public class EventController {
         }
 
         @PostMapping("/updateEvent")
-        public String updateEvent(Event Event) {
+        public String updateEvent(Event Event, @RequestParam("dates") String date, @RequestParam("datef") String date2) throws ParseException {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+            Date startTime = dateFormat.parse(date);
+            Date endTime = dateFormat.parse(date2);
+            Event.setStartTime(startTime);
+            Event.setEndTime(endTime);
+
             eventService.updateEvent(Event);
             return "redirect:/allEvent";
         }

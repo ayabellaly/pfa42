@@ -6,6 +6,8 @@ import com.example.cabinetdentistspring.repos.PrescriptionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +37,23 @@ public class PrescriptionService {
 
     public void deletePrescriptionById(Integer id){
         prescriptionRepo.deleteById(id);
+    }
+
+    public Prescription extractLineFromTable(Integer lineId) {
+
+        Optional<Prescription> prescription = prescriptionRepo.findById(lineId);
+        if (prescription.isPresent()) {
+            return prescription.get();
+        }
+        return null;
+
+
+    }
+
+    public File transformLineToFile(Prescription line) throws IOException {
+        File file = new File("src/main/resources/static/Prescription.txt");
+        return file;
+
     }
 
 

@@ -21,7 +21,7 @@
         <div id="content">
             <div/>
             <div class="container">
-                <h3> Edit patient</h3>
+                <h3> Edit Consultation</h3>
                 <div class="card">
                     <div class="card-body">
                         <div class="col-md-10">
@@ -33,6 +33,13 @@
                                         <input type="text" th:field="${Prescription.medication}"  class="form-control"
                                                id="medication" placeholder="medication" />
                                     </div>
+
+                                    <div class="form-group col-md-8">
+                                        <label for="Diagnostic" class="col-form-label">Diagnostic</label>
+                                        <input type="text" th:field="${Prescription.Diagnostic}"  class="form-control"
+                                               id="Diagnostic" placeholder="Diagnostic" />
+                                    </div>
+
                                     <div class="form-group col-md-8">
                                         <label for="prescribedDate" class="col-form-label">Patient Name</label>
                                         <input type="text" th:field="${Prescription.prescribedDate}" class="form-control"

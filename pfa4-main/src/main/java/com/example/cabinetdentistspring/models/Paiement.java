@@ -1,32 +1,35 @@
 package com.example.cabinetdentistspring.models;
 
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
 import java.util.Date;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Prescription {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
+public class Paiement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
-    private String medication;
-
+    private String type;
     @Column
-    private String Diagnostic;
+    private Date datePaiement;
     @Column
-    private Date prescribedDate;
+    private String montant;
+    @Column
+    private String description;
 
     @OneToOne
     private Patient patient;
-
-
 
 }

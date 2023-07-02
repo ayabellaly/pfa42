@@ -4,8 +4,9 @@ import com.example.cabinetdentistspring.models.Prescription;
 
 import com.example.cabinetdentistspring.services.PatientService;
 import com.example.cabinetdentistspring.services.PrescriptionService;
-import lombok.Data;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,7 +41,7 @@ public class PrescriptionController {
     public String lunchAddPrescriptionPage(Model model) {
         model.addAttribute("Prescription", new Prescription());
         model.addAttribute("patients", patientService.findallPatient());
-        return "add-Prescription";
+        return "add-prescription";
     }
 
     @PostMapping("/addPrescription")
@@ -55,13 +56,14 @@ public class PrescriptionController {
             pservice.addPrescription(prescription);
 
 
+
         return "redirect:/allPrescription";
     }
 
     @GetMapping("/Prescription/edit/{id}")
     public String lunchEditPage(Model model, @PathVariable("id") int id) {
         model.addAttribute("Prescription", pservice.findPrescriptionById(id));
-        return "edit-Prescription";
+        return "Edit-prescription";
 
     }
 
@@ -77,6 +79,15 @@ public class PrescriptionController {
     public String deletePrescription(@PathVariable("id") int id) {
         pservice.deletePrescriptionById(id);
         return "redirect:/allPrescription";
+
+
+
+
+
+
+
+
+
     }
 
 

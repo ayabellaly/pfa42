@@ -29,10 +29,17 @@ public class SpringSecurity {
                         .requestMatchers("/Acceuil").permitAll()
                         .requestMatchers("/Index-Secretaire").hasAnyAuthority("Secretaire")
                         .requestMatchers("/Index-Medecin").hasAnyAuthority("Medecin")
-                        .requestMatchers("/allPrescription").hasAnyAuthority("Medecin")
                         .requestMatchers("/allEvent").hasAnyAuthority("Secretaire","Medecin")
                         .requestMatchers("/addEvent").hasAnyAuthority("Secretaire","Medecin")
+                        .requestMatchers("/allPrescription").hasAnyAuthority("Medecin")
                         .requestMatchers("/addPrescription").hasAnyAuthority("Medecin")
+                        .requestMatchers("/allRendezVous").hasAnyAuthority("Secretaire")
+                        .requestMatchers("/addRendez").hasAnyAuthority("Secretaire")
+                        .requestMatchers("/allPaiement").hasAnyAuthority("Secretaire","Medecin")
+                        .requestMatchers("/addPaiement").hasAnyAuthority("Secretaire","Medecin")
+
+
+
 
 
 

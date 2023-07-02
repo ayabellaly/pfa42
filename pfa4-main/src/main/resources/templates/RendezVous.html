@@ -28,10 +28,10 @@
             <div class="container my-2 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <div th:switch="${Prescription}" class="container my-5">
+                        <div th:switch="${RendezVous}" class="container my-5">
                             <p class="my-5">
-                                <a href="/addp" class="btn btn-primary">
-                                    <i class="fas fa-user-plus ml-2"> Add Consultation</i></a>
+                                <a href="/addRendezVous" class="btn btn-primary">
+                                    <i class="fas fa-user-plus ml-2"> Add Rendez-Vous</i></a>
                             </p>
                             <div class="col-md-10">
                                 <h2 th:case="null">No record found !!</h2>
@@ -40,9 +40,8 @@
                                         <thead>
                                         <tr>
                                             <!--  <th type="hidden">id</th>-->
-                                            <th>medication</th>
-                                            <th>Diagnostic</th>
-                                            <th>prescribedDate</th>
+                                            <th>dateReservation</th>
+                                            <th>motif</th>
                                             <th>patient </th>
 
                                             <th>Edit</th>
@@ -50,22 +49,21 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="pres : ${Prescription}">
+                                        <tr th:each="RendezVous : ${RendezVous}">
                                             <!--<td type="hidden" th:text="${patient.id}"></td>-->
-                                            <td th:text="${pres.diagnostic}"></td>
-                                            <td th:text="${pres.medication}"></td>
-                                            <td th:text="${#dates.format(pres.prescribedDate,'yyyy-MM-dd')}"></td>
-                                            <td th:text="${pres.patient.name}"></td>
+                                            <td th:text="${#dates.format(RendezVous.dateReservation,'yyyy-MM-dd')}"></td>
+                                            <td th:text="${RendezVous.motif}"></td>
+                                            <td th:text="${RendezVous?.patient?.name}"></td>
 
 
                                             <td>
-                                                <a th:href="@{/Prescription/edit/{id}(id=${pres.id})}"
+                                                <a th:href="@{/RendezVous/edit/{id}(id=${RendezVous.id})}"
                                                    class="btn btn-primary">
                                                     <i class="fas fa-user-edit ml-2"></i>
                                                 </a>
                                             </td>
                                             <td>
-                                                <a th:href="@{/Prescription/delete/{id}(id=${pres.id})}"
+                                                <a th:href="@{/RendezVous/delete/{id}(id=${RendezVous.id})}"
                                                    class="btn btn-primary">
                                                     <i class="fas fa-user-times ml-2"></i>
                                                 </a>
