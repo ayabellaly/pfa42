@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="head :: head ">
+</head>
+
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <nav th:replace="NavBar-Secretaire :: navbar"></nav>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+            <div/>
+            <div class="container">
+                <h3> add Payment</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-md-10">
+                            <form action="#" th:action="@{/addPaiement}" th:object="${paiement}"
+                                  method="post">
+                                <div class="row">
+                                    <div class="form-group col-md-8">
+                                        <label for="type" class="col-form-label">start Time</label>
+                                        <select  id="type" th:field="${paiement.type}" required class="form-control">
+                                            <option value="">-- Select Type --</option>
+                                            <option value="">Chéque</option>
+                                            <option value="debit">liquide</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        <label for="datePaiement" class="col-form-label">date de Paiement</label>
+                                        <input type="Date" th:field="${paiement.datePaiement}" name="dateZ" class="form-control"
+                                               id="datePaiement" placeholder="datePaiement" />
+                                    </div>
+
+                                    <div class="form-group col-md-8">
+                                        <label for="Montant" class="col-form-label">Montant</label>
+                                        <input type="text" th:field="${paiement.Montant}" class="form-control"
+                                               id="Montant" placeholder="Montant" />
+                                    </div>
+
+                                    <div class="form-group col-md-8">
+                                        <label for="description" class="col-form-label">description</label>
+                                        <input type="text" th:field="${paiement.description}" class="form-control"
+                                               id="description" placeholder="description" />
+
+                                    </div>
+
+
+                                    <div class="form-group col-md-8">
+                                        <label for="patient" class="col-form-label">Patient:</label>
+                                        <select id="patient" name="patient.id" required class="form-control">
+                                            <!-- Iterate over the list of patients and populate the dropdown options -->
+                                            <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.name}"></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="submit" class="btn btn-primary" value=" Submit ">
+                                    </div>
+
+                                    <input type="hidden" id="id" th:field="${paiement.id}">
+
+                                </div>
+
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End of Main Content -->
+
+
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/chart-area-demo.js"></script>
+<script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
