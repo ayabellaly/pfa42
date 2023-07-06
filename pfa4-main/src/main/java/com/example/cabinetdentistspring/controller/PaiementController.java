@@ -2,9 +2,11 @@ package com.example.cabinetdentistspring.controller;
 
 import com.example.cabinetdentistspring.models.Paiement;
 import com.example.cabinetdentistspring.models.Patient;
+import com.example.cabinetdentistspring.repos.PatientRepo;
 import com.example.cabinetdentistspring.services.PaiementService;
 import com.example.cabinetdentistspring.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -27,6 +30,9 @@ public class PaiementController {
 
     @Autowired
     private PatientService patientService;
+
+    @Autowired
+    private PatientRepo patientRepo;
 
 
     @GetMapping("/allPaiement")
@@ -78,14 +84,15 @@ public class PaiementController {
         return "redirect:/allPaiement";
 
 
+
     }
 
-    @GetMapping("/searchPaiement")
-    public String searchPaiement(@RequestParam("name") String name, Model model) {
-        List<Paiement> paiements = paiementService.searchPaiementBYpatientName(name);
+    @PostMapping("/searchPaiement")
+    public String searchPaiement(Model model, @RequestParam("name") String patient) {
+        List<Paiement> paiements = paiementService.searchByPatient(patient);
         model.addAttribute("paiement", paiements);
         return "paiement";
-
-
     }
+
+
 }

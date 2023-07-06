@@ -1,5 +1,6 @@
 package com.example.cabinetdentistspring.services;
 
+import com.example.cabinetdentistspring.models.Paiement;
 import com.example.cabinetdentistspring.models.Patient;
 import com.example.cabinetdentistspring.models.Prescription;
 import com.example.cabinetdentistspring.repos.PrescriptionRepo;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,9 +52,12 @@ public class PrescriptionService {
 
     }
 
-    public File transformLineToFile(Prescription line) throws IOException {
-        File file = new File("src/main/resources/static/Prescription.txt");
-        return file;
+    public List<Prescription> searchPrescription(String patient) {
+        return prescriptionRepo.findprescriptionByPatient(patient);
+    }
+
+    public long count (LocalDateTime dt) {
+        return prescriptionRepo.count(dt);
 
     }
 

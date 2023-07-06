@@ -1,6 +1,7 @@
 package com.example.cabinetdentistspring.controller;
 
 
+import com.example.cabinetdentistspring.models.Paiement;
 import com.example.cabinetdentistspring.models.RendezVous;
 import com.example.cabinetdentistspring.services.PatientService;
 import com.example.cabinetdentistspring.services.RendezVousService;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 
@@ -84,6 +86,17 @@ public class RendezVousController {
 
 
     }
+
+
+    @PostMapping("/searchRendezVous")
+    public String searchRendezVous(Model model, @RequestParam("name") String patient) {
+        List<RendezVous> RendezVous = RendezVousService.searchPatientByRendezVous(patient);
+        model.addAttribute("RendezVous", RendezVous);
+
+        return "RendezVous";
+    }
+
+
 
 
 

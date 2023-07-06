@@ -38,8 +38,8 @@ public class PaiementService {
     }
 
 
-   public List<Paiement> searchPaiementBYpatientName (String name){
-        return paiementRepo.searchPaiementBYpatientName(name);
-   }
+    public List<Paiement> searchByPatient(String patient) {
+        return paiementRepo.findPaiementByPatient(patient);
+    }
 
 }

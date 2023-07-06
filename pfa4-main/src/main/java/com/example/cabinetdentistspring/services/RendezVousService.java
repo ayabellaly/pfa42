@@ -1,6 +1,7 @@
 package com.example.cabinetdentistspring.services;
 
 
+import com.example.cabinetdentistspring.models.Paiement;
 import com.example.cabinetdentistspring.models.Prescription;
 import com.example.cabinetdentistspring.models.RendezVous;
 import com.example.cabinetdentistspring.repos.RendezVousRepos;
@@ -38,6 +39,10 @@ public class RendezVousService {
 
     public int countRendezvous(){
         return RendezVousRepo.countRendezvous();
+    }
+
+    public List<RendezVous> searchPatientByRendezVous(String patient) {
+        return RendezVousRepo.findRendezVousByPatient(patient);
     }
 
 

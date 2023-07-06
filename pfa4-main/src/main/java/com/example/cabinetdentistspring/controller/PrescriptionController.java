@@ -2,6 +2,7 @@ package com.example.cabinetdentistspring.controller;
 
 import com.example.cabinetdentistspring.models.Prescription;
 
+import com.example.cabinetdentistspring.models.RendezVous;
 import com.example.cabinetdentistspring.services.PatientService;
 import com.example.cabinetdentistspring.services.PrescriptionService;
 
@@ -90,6 +91,15 @@ public class PrescriptionController {
 
     }
 
+
+
+    @PostMapping("/searchPrescription")
+    public String searchRendezVous(Model model, @RequestParam("name") String patient) {
+        List<Prescription> RendezVous = pservice.searchPrescription(patient);
+        model.addAttribute("Prescription", RendezVous);
+
+        return "Prescription";
+    }
 
 
 

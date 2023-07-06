@@ -15,7 +15,7 @@ import java.util.List;
 public interface PaiementRepo extends CrudRepository<Paiement, Integer> {
 
 
-    @Query("SELECT p FROM Paiement p WHERE p.patient.name = :name")
-    List<Paiement> searchPaiementBYpatientName(@Param("name") String name);
+    @Query("SELECT p FROM Paiement p WHERE p.patient.name = :patient")
+    List<Paiement> findPaiementByPatient(String patient);
 
 }
