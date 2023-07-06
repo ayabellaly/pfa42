@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:fragment="navbar">
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/Acceuil}">
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-user-md" style="font-size:30px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i>
     </div>
@@ -54,6 +54,19 @@
     </a>
   </li>
 
+  <li class="nav-item">
+    <a class="nav-link " href="/allRendezVous">
+      <i class="fas fa-fw fa-edit"></i>
+      <span>liste des rendez-vous</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link " href="https://calendar.google.com/calendar/embed?src=71bfd0d25d39ea71d917d95e23b6f91915c807b5d2fde66a763aea8c8a59eddc%40group.calendar.google.com&ctz=Africa%2FCasablanca">
+      <i class="fas fa-fw fa-edit"></i>
+      <span>liste des rendez-vous</span>
+    </a>
+  </li>
 
 
 

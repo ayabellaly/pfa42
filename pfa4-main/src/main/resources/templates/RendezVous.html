@@ -40,9 +40,10 @@
                                         <thead>
                                         <tr>
                                             <!--  <th type="hidden">id</th>-->
-                                            <th>dateReservation</th>
+                                            <th>date du rendezvous</th>
                                             <th>motif</th>
                                             <th>patient </th>
+                                            <th>Etat </th>
 
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -54,6 +55,7 @@
                                             <td th:text="${#dates.format(RendezVous.dateReservation,'yyyy-MM-dd')}"></td>
                                             <td th:text="${RendezVous.motif}"></td>
                                             <td th:text="${RendezVous?.patient?.name}"></td>
+                                            <td th:text="${RendezVous.etat}"></td>
 
 
                                             <td>

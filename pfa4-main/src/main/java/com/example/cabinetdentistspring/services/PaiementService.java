@@ -1,6 +1,7 @@
 package com.example.cabinetdentistspring.services;
 
 import com.example.cabinetdentistspring.models.Paiement;
+import com.example.cabinetdentistspring.models.Patient;
 import com.example.cabinetdentistspring.repos.PaiementRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,9 @@ public class PaiementService {
         paiementRepo.deleteById(id);
     }
 
+
+   public List<Paiement> searchPaiementBYpatientName (String name){
+        return paiementRepo.searchPaiementBYpatientName(name);
+   }
 
 }

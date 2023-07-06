@@ -30,7 +30,7 @@
                                   method="post">
                                 <div class="row">
                                     <div class="form-group col-md-8">
-                                        <label for="dateReservation" class="col-form-label">Date Reservation</label>
+                                        <label for="dateReservation" class="col-form-label">Date </label>
                                         <input type="Date" th:field="${RendezVous.dateReservation}"  class="form-control"
                                                id="dateReservation" placeholder="RendezVous" name="dateR" />
                                     </div>
@@ -49,6 +49,19 @@
                                             <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.name}"></option>
                                         </select>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="Etat">Status:</label>
+                                        <select id="Etat" name="Etat"  required class="form-control">
+                                            <option th:selected="${RendezVous.etat}" value="CONFIRMED" >Confirmed</option>
+                                            <option th:selected="${RendezVous.etat}" value="CANCELED">Canceled</option>
+                                            <option th:selected="${RendezVous.etat}" value="PENDING">Pending</option>
+
+                                        </select>
+                                    </div>
+
+
+
 
                                         <div class="col-md-6">
                                             <input type="submit" class="btn btn-primary" value=" Submit ">

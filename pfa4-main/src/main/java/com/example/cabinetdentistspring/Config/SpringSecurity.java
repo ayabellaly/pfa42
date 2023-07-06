@@ -33,8 +33,8 @@ public class SpringSecurity {
                         .requestMatchers("/addEvent").hasAnyAuthority("Secretaire","Medecin")
                         .requestMatchers("/allPrescription").hasAnyAuthority("Medecin")
                         .requestMatchers("/addPrescription").hasAnyAuthority("Medecin")
-                        .requestMatchers("/allRendezVous").hasAnyAuthority("Secretaire")
-                        .requestMatchers("/addRendez").hasAnyAuthority("Secretaire")
+                        .requestMatchers("/allRendezVous").hasAnyAuthority("Secretaire","Medecin")
+                        .requestMatchers("/addRendez").hasAnyAuthority("Secretaire","Medecin")
                         .requestMatchers("/allPaiement").hasAnyAuthority("Secretaire","Medecin")
                         .requestMatchers("/addPaiement").hasAnyAuthority("Secretaire","Medecin")
 

@@ -2,6 +2,7 @@ package com.example.cabinetdentistspring.controller;
 
 import com.example.cabinetdentistspring.DTO.UserDto;
 import com.example.cabinetdentistspring.models.User;
+import com.example.cabinetdentistspring.services.RendezVousService;
 import com.example.cabinetdentistspring.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -20,18 +21,21 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RendezVousService rendezVousService;
     @RequestMapping("/login")
     public String loginForm() {
         return "login";
     }
 
     @RequestMapping("/Acceuil")
-    public String AcceuilForm() {
+    public String AcceuilForm(Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userRole = authentication.getAuthorities().iterator().next().getAuthority();
         if (userRole.equals("Secretaire")) {
             return "Index-Secretaire";
         } else if (userRole.equals("Medecin")) {
+            model.addAttribute("countRendezvous", rendezVousService.countRendezvous());
             return "Index-Medecin";
         }
         else

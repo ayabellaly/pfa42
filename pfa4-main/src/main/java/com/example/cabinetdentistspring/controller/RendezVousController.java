@@ -59,7 +59,7 @@ public class RendezVousController {
     public String EditRendezVousPage(Model model, @PathVariable("id") int id) {
         model.addAttribute("RendezVous", RendezVousService.findRendezVousById(id));
         model.addAttribute("patients", patientService.findallPatient());
-        return "edit-Paiement";
+        return "edit-RendezVous";
 
     }
 
@@ -84,6 +84,10 @@ public class RendezVousController {
 
 
     }
+
+
+
+
 
 
 }

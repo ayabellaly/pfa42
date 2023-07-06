@@ -19,6 +19,13 @@ import java.util.Date;
 
 public class RendezVous {
 
+    public enum Etat {
+        CONFIRMED,
+        CANCELED,
+        PENDING
+    }
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -27,8 +34,15 @@ public class RendezVous {
     @Column
     private String motif;
 
+    @Enumerated (EnumType.STRING)
+    private Etat etat;
+
+
+
+
     @OneToOne
      private Patient patient;
 
 
 }
+

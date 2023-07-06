@@ -36,6 +36,10 @@ public class RendezVousService {
         RendezVousRepo.deleteById(id);
     }
 
+    public int countRendezvous(){
+        return RendezVousRepo.countRendezvous();
+    }
+
 
 
 

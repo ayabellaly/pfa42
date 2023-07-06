@@ -1,6 +1,7 @@
 package com.example.cabinetdentistspring.controller;
 
 import com.example.cabinetdentistspring.models.Paiement;
+import com.example.cabinetdentistspring.models.Patient;
 import com.example.cabinetdentistspring.services.PaiementService;
 import com.example.cabinetdentistspring.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 @Controller
@@ -60,6 +62,7 @@ public class PaiementController {
 
     }
 
+
     @PostMapping("/updatePaiement")
     public String upadtePaiement(Paiement paiement, @RequestParam("dateZ") String date) throws ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -77,14 +80,12 @@ public class PaiementController {
 
     }
 
-
-
-
-
-
-
-
-
+    @GetMapping("/searchPaiement")
+    public String searchPaiement(@RequestParam("name") String name, Model model) {
+        List<Paiement> paiements = paiementService.searchPaiementBYpatientName(name);
+        model.addAttribute("paiement", paiements);
+        return "paiement";
 
 
     }
+}
