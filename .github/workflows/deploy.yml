@@ -27,4 +27,4 @@ jobs:
         with:
           context: pfa4-main
           push: true
-          tags: eltitans/CabinetDentaire:latest
+          tags: eltitans/cabinetdentaire:latest
