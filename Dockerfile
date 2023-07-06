@@ -1,7 +1,7 @@
 FROM openjdk:17-jdk
 WORKDIR /work/
 
-COPY pfa4-main/target/*.jar /work/CabinetdentistSpring-0.0.1-SNAPSHOT.jar
+COPY target/*.jar /work/CabinetdentistSpring-0.0.1-SNAPSHOT.jar
 
 
 
