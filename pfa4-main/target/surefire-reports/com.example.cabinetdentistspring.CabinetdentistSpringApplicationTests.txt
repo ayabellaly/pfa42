@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.cabinetdentistspring.CabinetdentistSpringApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.172 s - in com.example.cabinetdentistspring.CabinetdentistSpringApplicationTests
