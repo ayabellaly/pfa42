@@ -8,15 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CabinetdentistSpring" />
+        <module name="pfa42" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="CabinetdentistSpring" target="17" />
+      <module name="pfa42" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="CabinetdentistSpring" options="-parameters" />
+      <module name="pfa42" options="-parameters" />
     </option>
   </component>
 </project>

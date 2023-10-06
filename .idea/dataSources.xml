@@ -15,5 +15,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/cabinetdentist</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="cabinetdentist@localhost [3]" uuid="dad86b56-0cd8-408e-ab27-53d994411fd5">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/cabinetdentist</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

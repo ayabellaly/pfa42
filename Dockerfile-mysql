@@ -1,0 +1,13 @@
+# Use the official MySQL image
+FROM mysql:latest
+
+# Set the root password to an empty string (no password)
+ENV MYSQL_ROOT_PASSWORD=""
+
+# Create a database and user with empty passwords
+ENV MYSQL_DATABASE=cabinetdentist
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=""
+
+# Expose the MySQL port
+EXPOSE 3306
