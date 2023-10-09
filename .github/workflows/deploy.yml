@@ -1,5 +1,3 @@
-name: CI/CD to springboot-project
-
 on:
   push:
     branches:
@@ -16,11 +14,15 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # You can specify the Java version you need
+          java-version: '11'
+          distribution: 'adopt'
+
+      - name: Make 'mvnw' executable
+        run: chmod +x mvnw
 
       - name: Build Spring Boot Application
         run: |
-          ./mvnw clean package  # Use the appropriate build command for your project
+          ./mvnw clean package
 
       - name: Build Docker image for Spring Boot
         run: docker build -t your-spring-app-image:1.0 -f Dockerfile .
